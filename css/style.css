@@ -3,55 +3,85 @@
   margin: 0;
   padding: 0;
 }
-html{
-  height: 100%;
-}
-body{
-  display: flex;
-}
 body > div{
   width: 100%;
   background: gray;
   display: grid;
   gap: 10px;
   grid:
-    'header header header' 300px
-    'menu main main' 500px
-    'menu aside aside' 150px
-    'menu item1 item1' 300px
-    'menu item2 item2' 300px
-    'footer footer footer' 150px;
+    'header header header header header' 100px
+    'menu main main main main' auto
+    'menu aside aside aside aside' auto
+    'menu item1 item1 item2 item2' auto
+    'menu item1 item1 item2 item2' auto
+    'footer footer footer footer footer' 150px;
 }
 div div{
-  padding: 20px 0;
-  font-size: 50px;
+  font-size: 20px;
   background-color: aquamarine;
 }
 div div:first-child{
+  background-color: black;
   grid-area: header;
 }
 div div:nth-of-type(2){
   grid-area: menu;
 }
+div div:nth-of-type(2) ul{
+  list-style-type: none;
+  background-color: gray;
+}
+div div:nth-of-type(2) ul li{
+  padding: 10px;
+}
+div div:nth-of-type(2) ul li a{
+  background-color: rgb(61, 61, 61);
+  text-decoration: none;
+  color: antiquewhite;
+  padding: 20px 90px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: .5s ease;
+}
+div div:nth-of-type(2) ul li a:hover{
+  background-color: rgb(102, 102, 102);
+}
+
 div div:nth-of-type(3){
+  padding: 10px;
   grid-area: main;
 }
 div div:nth-of-type(4){
   grid-area: aside;
+  padding: 20px;
+  columns: auto 3;
+  column-gap: 50px;
+  column-rule: 4px solid black;
 }
 div div:nth-of-type(5){
   grid-area: item1;
+  padding: 20px;
+}
+div div:nth-of-type(5) img,
+div div:nth-of-type(6) img{
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  float: left;
+}
+div div:nth-of-type(5) p,
+div div:nth-of-type(6) p{
+  padding: 20px;
 }
 div div:nth-of-type(6){
   grid-area: item2;
+  padding: 20px;
 }
 div div:last-child{
   grid-area: footer;
+  background-color: black;
 }
 @media screen and (max-width: 600px){
-  html,body{
-    height: auto;
-  }
   body > div{
     background-color: red;
     grid:
@@ -63,6 +93,11 @@ div div:last-child{
       'item2'
       'footer';
   }
-    
+  div div:nth-of-type(2) ul li a{
+    text-align: center;
+    width: 100%;
+  }
+  div div:nth-of-type(4){
+    columns: auto 1;
   }
 }
