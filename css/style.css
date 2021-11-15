@@ -1,7 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Roboto;
 }
 body > div{
   width: 100%;
@@ -18,11 +21,15 @@ body > div{
 }
 div div{
   font-size: 20px;
-  background-color: aquamarine;
+}
+div div:not(:first-child){
+  border-radius: 10px;
 }
 div div:first-child{
+  padding: 20px;
   background-color: black;
   grid-area: header;
+  color: aliceblue;
 }
 div div:nth-of-type(2){
   grid-area: menu;
@@ -48,8 +55,11 @@ div div:nth-of-type(2) ul li a:hover{
 }
 
 div div:nth-of-type(3){
-  padding: 10px;
+  padding: 30px;
   grid-area: main;
+}
+div div:nth-of-type(3) h2{
+  padding: 30px 0;
 }
 div div:nth-of-type(4){
   grid-area: aside;
@@ -83,7 +93,6 @@ div div:last-child{
 }
 @media screen and (max-width: 600px){
   body > div{
-    background-color: red;
     grid:
       'header'
       'menu'
